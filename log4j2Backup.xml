@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="error" monitorInterval="60">
+    <Properties>
+        <Property name="defaultPattern">%d [%-5p] [%6t] [%-15c{1}]: %m%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>${defaultPattern}</pattern>
+            </PatternLayout>
+        </Console>
+        <RollingFile name="TestNG" fileName="./log/TestNG.log" append="false"
+                     filePattern="./log/archive/TestNG.%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout>
+                <pattern>${defaultPattern}</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy/><!-- Rotated everyday -->
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="./log/archive/" maxDepth="1">
+                    <IfAny>
+                        <IfFileName glob="TestNG*.gz" />
+                        <IfFileName glob="TestNG*.log" />
+                    </IfAny>
+                    <IfAccumulatedFileCount exceeds="10" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <!-- <AppenderRef ref="ConsoleAppender"/> -->
+            <AppenderRef ref="TestNG"/>
+        </Root>
+    </Loggers>
+</Configuration>
