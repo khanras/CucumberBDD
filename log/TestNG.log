@@ -1,3 +1,0 @@
-2021-03-16 18:59:04,112 [INFO ] [TestNG-PoolService-0] [WebDriverManager]: Using chromedriver 86.0.4240.22 (since Google Chrome 86 is installed in your machine)
-2021-03-16 18:59:04,136 [INFO ] [TestNG-PoolService-0] [WebDriverManager]: Exporting webdriver.chrome.driver as C:\Users\824908\.m2\repository\webdriver\chromedriver\win32\86.0.4240.22\chromedriver.exe
-2021-03-16 18:59:25,898 [INFO ] [TestNG-PoolService-0] [WebdriverActions]: Closing Session e45e23839006a6a0fab15eeaab802a1f | Scenario Handle multiple windows in selenium

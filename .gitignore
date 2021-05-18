@@ -1,2 +1,6 @@
 # Project exclude paths
 /target/
+/OutputReport/
+/log/
+/ExtendReport/
+/.idea/
