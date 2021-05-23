@@ -31,16 +31,14 @@ public class WindowHandlePage extends BasePage {
         scenarioContext.driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
     }
 
-    public void windowHandle(){
+    public void switchToChildWindow(){
         String parentWindow = scenarioContext.driver.getWindowHandle();
         Set<String> childWindows = scenarioContext.driver.getWindowHandles();
         for (String window:childWindows){
             if (!window.equalsIgnoreCase(parentWindow)){
                 scenarioContext.driver.switchTo().window(window);
-                scenarioContext.driver.close();
             }
         }
-        scenarioContext.driver.switchTo().window(parentWindow);
     }
 
     public void frameHandle(){

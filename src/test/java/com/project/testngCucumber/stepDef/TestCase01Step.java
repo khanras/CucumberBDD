@@ -3,6 +3,7 @@ package com.project.testngCucumber.stepDef;
 import com.uiautomation.framework.driverContext.ScenarioContext;
 import com.uiautomation.framework.logger.CustomException;
 import com.project.testngCucumber.pages.WindowHandlePage;
+import com.uiautomation.framework.utils.ScreenshotUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,9 +22,11 @@ import java.util.List;
 public class TestCase01Step {
     private ScenarioContext scenarioContext;
     private WindowHandlePage windowHandlePage;
+    private ScreenshotUtil screenshotUtil;
     public TestCase01Step(ScenarioContext scenarioContext) throws CustomException {
         this.scenarioContext=scenarioContext;
         this.windowHandlePage = new WindowHandlePage(scenarioContext);
+        this.screenshotUtil = new ScreenshotUtil(scenarioContext);
     }
     @Given("User on the home page")
     public void user_on_the_home_page() {
@@ -84,18 +87,21 @@ public class TestCase01Step {
     }
 
     @Given("User on the home page of {string}")
-    public void userOnTheHomePageOfURL(String URL) {
+    public void userOnTheHomePageOfURL(String URL) throws CustomException {
         scenarioContext.driver.get(URL);
-
+        System.out.println(screenshotUtil.captureScreenshot("HOME_PAGE"));
     }
 
     @When("User click on links to open multiple window")
     public void userClickOnLinksToOpenMultipleWindow() throws CustomException {
         windowHandlePage.clickOnNewTabButton();
+        System.out.println(screenshotUtil.captureScreenshot("New_Tab_Before"));
     }
 
     @Then("User validate the windows")
     public void userValidateTheWindows() {
+        windowHandlePage.switchToChildWindow();
+        System.out.println(screenshotUtil.captureScreenshot("New_Tab_After"));
 
     }
 }

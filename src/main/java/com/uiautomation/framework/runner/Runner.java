@@ -1,7 +1,7 @@
 package com.uiautomation.framework.runner;
 
 import com.uiautomation.framework.report.ExtendReporter;
-import com.uiautomation.framework.utils.DateTimeUtils;
+import com.uiautomation.framework.utils.DateTimeUtil;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.Reporter;
@@ -22,7 +22,7 @@ public class Runner extends AbstractTestNGCucumberTests {
     public void beforeTest(){
         String testName = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getName();
         System.out.println("Test name::"+testName);
-        String plugin = "pretty, html:OutputReport, json:OutputReport/"+testName+"_"+ DateTimeUtils.getCurrentTimeStamp("ddMMyyyyHHmmss")+".json";
+        String plugin = "pretty, html:OutputReport, json:OutputReport/cucumber-json-reports/"+testName+"_"+ DateTimeUtil.getCurrentTimeStamp("ddMMyyyyHHmmss")+".json";
         jsonFilesPath.add("./"+plugin.split("json:")[1]);
         System.setProperty("cucumber.plugin",plugin);
         String tags = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("tags");
