@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+         table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+         }
+         td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+         }
+         tr:nth-child(even) {
+            background-color: #dddddd;
+         }
+      </style>
+   </head>
+   <body>
+      <h2>HTML Table</h2>
+      <table width="50%">
+         <tr>
+            <th>COL 1</th>
+            <th>COL 2</th>
+            <th>COL 3</th>
+            <th>COL 4</th>
+            <th>COL 5</th>
+         </tr>
+         <tr>
+            <td>Value 1</td>
+            <td>Value 2</td>
+            <td style="max-width: 100px;">
+               <div style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" id="long-text">
+                  [
+                  {
+                  color: "red",
+                  value: "#f00"
+                  },
+                  {
+                  color: "green",
+                  value: "#0f0"
+                  },
+                  {
+                  color: "blue",
+                  value: "#00f"
+                  },
+                  {
+                  color: "cyan",
+                  value: "#0ff"
+                  },
+                  {
+                  color: "magenta",
+                  value: "#f0f"
+                  },
+                  {
+                  color: "yellow",
+                  value: "#ff0"
+                  },
+                  {
+                  color: "black",
+                  value: "#000"
+                  }
+                  ]
+               </div>
+               <a id="show-mr-ls" style="cursor: pointer;color: blue;" onclick="show_more_less()">Show more</a>
+            </td>
+            <td>Value 4</td>
+            <td>Value 5</td>
+         </tr>
+      </table>
+      <script type="text/javascript">
+         var status = "less";
+         function show_more_less(){
+           if (status == "less") {
+           document.getElementById("long-text").style.removeProperty('white-space');
+           document.getElementById("show-mr-ls").innerHTML = "Show less";
+           status = "more";
+         } else {
+           document.getElementById("long-text").style.whiteSpace = "nowrap";
+           document.getElementById("show-mr-ls").innerHTML = "Show more";
+           status = "less";
+         }
+         };
+      </script>
+   </body>
+</html>
