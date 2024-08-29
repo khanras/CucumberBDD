@@ -7,6 +7,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class BaseUIActions {
@@ -17,7 +18,7 @@ public class BaseUIActions {
     public BaseUIActions(ScenarioContext scenarioContext) throws CustomException {
         this.driver=scenarioContext.driver;
         this.webElementWaitTime = Long.parseLong(PropertiesUtil.getPropertiesUtil().getApplication("WebElementWaitTime"));
-        this.webDriverWait = new WebDriverWait(this.driver,this.webElementWaitTime);
+        this.webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(this.webElementWaitTime));
     }
     public synchronized void sendKeys(WebElement element,String value) throws CustomException {
         this.waitForElementToBeClickable(element);

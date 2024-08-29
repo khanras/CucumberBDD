@@ -4,6 +4,7 @@ import com.uiautomation.framework.driverContext.ScenarioContext;
 import com.uiautomation.framework.logger.CustomException;
 import com.project.testngCucumber.pages.WindowHandlePage;
 import com.uiautomation.framework.utils.ScreenshotUtil;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -60,11 +61,8 @@ public class TestCase01Step {
 
     @And("User check if any broken link available in the page")
     public void userCheckIfAnyBrokenLinkAvailableInThePage() {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-
-        driver.get("http://google.com/");
-        List<WebElement> allLinks = driver.findElements(By.tagName("a"));
+        scenarioContext.driver.get("http://google.com/");
+        List<WebElement> allLinks = scenarioContext.driver.findElements(By.tagName("a"));
         for (WebElement element : allLinks){
             String url = element.getAttribute("href");
             try {
@@ -79,7 +77,6 @@ public class TestCase01Step {
 
                 }
                 System.out.println(response);
-                driver.quit();
             } catch (IOException e) {
                 e.printStackTrace();
             }

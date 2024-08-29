@@ -22,13 +22,6 @@ public class WindowHandlePage extends BasePage {
 
     public void clickOnNewTabButton() throws CustomException {
         baseUIActions.jseClick(newTabButton);
-        //baseUIActions.click(newTabButton);
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        scenarioContext.driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
     }
 
     public void switchToChildWindow(){

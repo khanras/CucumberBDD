@@ -16,10 +16,9 @@ public class ExtendReporter {
         this.jsonReportFiles=jsonReportFiles;
         this.extendReportPath=extendReportPath;
         this.reportName = reportName;
-        createReport();
     }
 
-    private void createReport() {
+    public void createReport() {
         Configuration configuration = new Configuration(new File(this.extendReportPath), this.reportName);
         //configuration.setRunWithJenkins(false);
         //configuration.setBuildNumber("Test");

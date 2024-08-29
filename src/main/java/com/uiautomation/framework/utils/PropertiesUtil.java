@@ -16,7 +16,7 @@ public class PropertiesUtil {
     private void setProperties() throws CustomException {
         try {
             ClassLoader classLoader = PropertiesUtil.class.getClassLoader();
-            InputStream in = classLoader.getResourceAsStream("application.properties");
+            InputStream in = classLoader.getResourceAsStream("configurations/application.properties");
             propApp.load(in);
             in.close();
         } catch (IOException e) {

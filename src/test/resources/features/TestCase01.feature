@@ -12,7 +12,7 @@ Feature: TestCase1
     When Login using valid credentials
     Then User can login successfully
 
-  @tc03
+  @testCase03
   Scenario Outline: Handle multiple windows in selenium
     Given User on the home page of <URL>
     When User click on links to open multiple window

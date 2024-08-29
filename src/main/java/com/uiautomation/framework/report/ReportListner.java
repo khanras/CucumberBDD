@@ -13,37 +13,11 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.List;
 
-public class ReportListner implements ITestListener, IAnnotationTransformer2, IAlterSuiteListener {
+public class ReportListner implements ITestListener, IAlterSuiteListener {
     @Override
     public void alter(List<XmlSuite> list) {
         XmlSuite xmlSuite = (XmlSuite)list.get(0);
         xmlSuite.setDataProviderThreadCount(10);
-    }
-
-    @Override
-    public void transform(IConfigurationAnnotation iConfigurationAnnotation, Class aClass, Constructor constructor, Method method) {
-
-    }
-
-    @Override
-    public void transform(IDataProviderAnnotation iDataProviderAnnotation, Method method) {
-        try {
-            if (PropertiesUtil.getPropertiesUtil().getApplication("ExecuteParallel").equalsIgnoreCase("true")) {
-                iDataProviderAnnotation.setParallel(true);
-            }
-        } catch (CustomException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void transform(IFactoryAnnotation iFactoryAnnotation, Method method) {
-
-    }
-
-    @Override
-    public void transform(ITestAnnotation iTestAnnotation, Class aClass, Constructor constructor, Method method) {
-
     }
 
     @Override

@@ -44,5 +44,9 @@ public class ScreenshotUtil extends BasePage {
         return dest;
     }
 
+    public byte[] captureScreenshotAsBytes() {
+        return ((TakesScreenshot) this.driver).getScreenshotAs(OutputType.BYTES);
+    }
+
 
 }

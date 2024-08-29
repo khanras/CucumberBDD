@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="RegressionTest" parallel="false">
-    <listeners>
+<suite name="RegressionTest" parallel="tests" thread-count="1">
+    <!--<listeners>
         <listener class-name="com.uiautomation.framework.report.ReportListner"></listener>
-    </listeners>
+    </listeners>-->
 
     <test name="UI Automation - Chrome">
         <parameter name="browser" value="chrome"/>
-        <parameter name="tags" value="@tc03"/>
+        <!--<parameter name="tags" value="@testCase03"/>-->
         <classes>
             <class name="com.uiautomation.framework.runner.Runner"/>
         </classes>
     </test>
+    <!--<test name="UI Automation - Safari">
+        <parameter name="browser" value="Safari"/>
+        <parameter name="tags" value="@testCase03"/>
+        <classes>
+            <class name="com.uiautomation.framework.runner.Runner"/>
+        </classes>
+    </test>-->
     <!--<test name="UI Automation - IE">
         <parameter name="browser" value="ie"/>
         <parameter name="tags" value="@tc03"/>
